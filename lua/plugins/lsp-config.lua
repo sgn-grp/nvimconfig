@@ -1,0 +1,32 @@
+return {
+	{
+		"mason-org/mason-lspconfig.nvim",
+		opts = {},
+		dependencies = {
+			{ "mason-org/mason.nvim", opts = {} },
+			"neovim/nvim-lspconfig",
+		},
+		config = function()
+			require("mason").setup({
+				ensure_installed = { "bash-debug-adapter" },
+			})
+			require("mason-lspconfig").setup({
+				ensure_installed = { "lua_ls", "clangd", "neocmake", "bashls" },
+				automatic_enable = true,
+			})
+		end,
+	},
+	{
+		"neovim/nvim-lspconfig",
+		config = function()
+			require("lsp_configs.lua-ls_config")
+			require("lsp_configs.roslyn-csharp-config")
+
+			vim.lsp.enable("clangd")
+			vim.lsp.enable("lua_ls")
+			vim.lsp.enable("neocmake")
+			vim.lsp.enable("bashls")
+			vim.lsp.enable("roslyn")
+		end,
+	},
+}
