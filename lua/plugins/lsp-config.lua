@@ -21,10 +21,11 @@ return {
 		config = function()
 			require("lsp_configs.lua-ls_config")
 			require("lsp_configs.roslyn-csharp-config")
+			require("lsp_configs.neocmake")
 
 			vim.lsp.enable("clangd")
 			vim.lsp.enable("lua_ls")
-			vim.lsp.enable("neocmake")
+			vim.lsp.enable("cmake")
 			vim.lsp.enable("bashls")
 			vim.lsp.enable("roslyn")
 		end,

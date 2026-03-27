@@ -16,7 +16,8 @@ dap.configurations.c = {
 			return vim.fn.input("Arguments: ", "")
 		end,
 		cwd = "${workspaceFolder}",
-		stopAtBeginningOfMainSubprogram = false,
+		stopAtBeginningOfMainSubprogram = true,
+		-- console = "integratedTerminal",
 	},
 	{
 		name = "Select and attach to process",
