@@ -17,7 +17,7 @@ dap.configurations.c = {
 		end,
 		cwd = "${workspaceFolder}",
 		stopAtBeginningOfMainSubprogram = true,
-		console = "integratedTerminal",
+		Console = "integratedTerminal",
 	},
 	{
 		name = "Select and attach to process",

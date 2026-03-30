@@ -1,5 +1,5 @@
 -- dap mappings
-local dap = require("dap")
+local dap, dapui = require("dap"), require("dapui")
 vim.keymap.set("v", "<M-k>", ':lua require("dapui").eval()<CR>', {})
 
 vim.keymap.set("n", "<F5>", function()
@@ -48,3 +48,33 @@ end
 vim.keymap.set("n", "<leader>du", function() require("dapui").toggle() end, { desc = "Toggle DAP UI" })
 
 vim.keymap.set("n", "<leader>dv", function() require("dap-view").toggle() end, { desc = "Toggle DAP View" })
+
+vim.keymap.set("n", "<leader>dB", function() 
+	dapui.float_element("breakpoints", {
+		title = "Breakpoints",
+		width = 100,
+		height = 20,
+		enter = true,
+		position = "center"
+	})
+end, {desc = "Open Breakpoints Floating Window"})
+
+vim.keymap.set("n", "<leader>dC", function() 
+	dapui.float_element("console", {
+		title = "Console",
+		width = 100,
+		height = 20,
+		enter = true,
+		position = "center"
+	})
+end, {desc = "Open Console Floating Window"})
+
+vim.keymap.set("n", "<leader>dW", function() 
+	dapui.float_element("watches", {
+		title = "Watch",
+		width = 100,
+		height = 20,
+		enter = true,
+		position = "center"
+	})
+end, {desc = "Open Watch Floating Window"})
