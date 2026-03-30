@@ -22,6 +22,12 @@ return {
 			require("lsp_configs.lua-ls_config")
 			require("lsp_configs.roslyn-csharp-config")
 			require("lsp_configs.neocmake")
+			vim.lsp.config("clangd", {
+				capabilities = require("cmp_nvim_lsp").default_capabilities(),
+			})
+			vim.lsp.config("bashls", {
+				capabilities = require("cmp_nvim_lsp").default_capabilities(),
+			})
 
 			vim.lsp.enable("clangd")
 			vim.lsp.enable("lua_ls")

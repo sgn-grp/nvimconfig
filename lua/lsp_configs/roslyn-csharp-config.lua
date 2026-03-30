@@ -1,4 +1,5 @@
 vim.lsp.config("roslyn", {
+	capabilities = require('cmp_nvim_lsp').default_capabilities(),
     on_attach = function()
         print("This will run when the server attaches!")
     end,
