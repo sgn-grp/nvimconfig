@@ -18,15 +18,7 @@ vim.o.updatetime = 300
 -- loading lazy and all the pulgins
 require("config.lazy")
 require("mappings")
+require("autoCommands")
 
 -- functionality
 
-vim.api.nvim_create_autocmd("CursorHold", {
-	callback = function()
-		vim.diagnostic.open_float(nil, {
-			focusable = false,
-			border = "rounded",
-			source = "always",
-		})
-	end,
-})
