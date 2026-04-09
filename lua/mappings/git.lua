@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<leader>gG", function()
+vim.keymap.set("n", "<leader>gg", function()
 	Snacks.terminal({ "gitui" }, { cwd = Snacks.git.get_root() }, {
 		win = {
 			style = "float", -- ensure it's a float
