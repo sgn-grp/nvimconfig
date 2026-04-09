@@ -82,6 +82,12 @@ return {
 				wrap = false
 			})
 
+			require("dap").defaults.fallback.external_terminal = {
+				command = "zsh",
+				args = { 'start', '--cwd', '.'}
+			}
+			require("dap").defaults.fallback.force_external_terminal = true
+
 			Home = os.getenv("HOME")
 			require("dapconfigs.config")
 			require("dapconfigs.gdb")
@@ -89,6 +95,7 @@ return {
 			require("dapconfigs.lua")
 			require("dapconfigs.netcoredbg")
 		end,
+		
 	},
 	{
 		"igorlfs/nvim-dap-view",

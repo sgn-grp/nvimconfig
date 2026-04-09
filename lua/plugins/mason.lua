@@ -1,5 +1,6 @@
 return {
 	"mason-org/mason.nvim",
+	opts = { ensure_installed = { "gitui" } },
 	config = function()
 		require("mason").setup({
 			registries = {

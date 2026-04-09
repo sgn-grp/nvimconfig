@@ -23,6 +23,6 @@ dap.configurations.sh = {
 		args = {},
 		argsString = "",
 		env = {},
-		terminalKind = "integrated",
+		terminalKind = "enternal",
 	},
 }
