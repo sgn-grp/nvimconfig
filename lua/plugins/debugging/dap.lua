@@ -83,17 +83,16 @@ return {
 			})
 
 			require("dap").defaults.fallback.external_terminal = {
-				command = "zsh",
+				command = "bash",
 				args = { 'start', '--cwd', '.'}
 			}
 			require("dap").defaults.fallback.force_external_terminal = true
 
-			Home = os.getenv("HOME")
 			require("dapconfigs.config")
-			require("dapconfigs.gdb")
-			require("dapconfigs.bash")
-			require("dapconfigs.lua")
-			require("dapconfigs.netcoredbg")
+			if LAN_CCPP then require("dapconfigs.ccpp") end
+			if LAN_BASH then require("dapconfigs.bash") end
+			if LAN_LUA then require("dapconfigs.lua") end
+			if LAN_CSHARP then require("dapconfigs.netcoredbg") end
 		end,
 		
 	},
@@ -109,7 +108,6 @@ return {
 			require("dap-view").setup({
 				winbar = {
 					show = true,
-					-- You can add a "console" section to merge the terminal with the other views
 					sections = { "watches", "scopes", "exceptions", "breakpoints", "threads", "repl", "console" },
 					-- Must be one of the sections declared above
 					default_section = "watches",

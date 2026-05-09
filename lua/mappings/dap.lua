@@ -3,6 +3,7 @@ local dap, dapui = require("dap"), require("dapui")
 vim.keymap.set("v", "<M-k>", ':lua require("dapui").eval()<CR>', {})
 
 vim.keymap.set("n", "<F5>", function()
+	vim.cmd("wall")
 	dap.continue()
 end)
 vim.keymap.set("n", "<F10>", function()
@@ -78,3 +79,7 @@ vim.keymap.set("n", "<leader>dW", function()
 		position = "center"
 	})
 end, {desc = "Open Watch Floating Window"})
+
+vim.keymap.set("n", "<leader>DT", function ()
+	require("osv").launch({port = 8086})
+end, {desc = "launch a nvim lua debugging server"})

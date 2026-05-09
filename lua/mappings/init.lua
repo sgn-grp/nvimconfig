@@ -4,8 +4,6 @@ local map = vim.keymap.set
 -- general mappings
 -- map("n", "<Leader>ne", ":Vexplore <bar> :vertical resize 30<CR>", { silent = true})
 map("n", "<Leader>q", ":q<CR>", { silent = true })
-map("v", "<Leader>p", '"+p', { silent = true })
-map("v", "<Leader>y", '"+y', { silent = true })
 
 map("n", "<Leader>l", "<C-w>l", { silent = true })
 map("n", "<Leader>h", "<C-w>h", { silent = true })
@@ -26,3 +24,4 @@ require("mappings.nonels")
 require("mappings.telescope")
 require("mappings.undotree")
 require("mappings.git")
+require("mappings.persistance")

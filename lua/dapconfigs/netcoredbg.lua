@@ -1,6 +1,8 @@
+local home = os.getenv("HOME")
 require("dap").adapters.coreclr = {
 	type = "executable",
-	command = Home .. "/.local/share/nvim/mason/bin" .. "/netcoredbg",
+
+	command = home .. "/.local/share/nvim/mason/bin" .. "/netcoredbg",
 	args = { "--interpreter=vscode" },
 }
 
@@ -10,7 +12,8 @@ require("dap").configurations.cs = {
 		name = "launch - netcoredbg",
 		request = "launch",
 		program = function()
-			return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/", "file")
+			os.execute("dotnet build")
+			return vim.fn.glob(vim.fn.getcwd() .. "/bin/Debug/**/*.dll")
 		end,
 		console = "integratedTerminal",
 	},

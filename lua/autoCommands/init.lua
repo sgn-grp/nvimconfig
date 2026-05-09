@@ -1,3 +1,2 @@
-require("autoCommands.persistence")
+require("autoCommands.session-management")
 require("autoCommands.diagnostics")
-require("autoCommands.bufferManagement")

@@ -1,8 +1,17 @@
-
 local harpoon = require("harpoon")
 vim.keymap.set("n", "<leader>a", function()
+	local harpoond = harpoon:list()
+	local file = vim.fs.basename(vim.api.nvim_buf_get_name(0))
+
+	for i, item in ipairs(harpoond.items) do
+		if vim.fs.basename(item.value) == file then
+			-- harpoond:remove()					-- remove without effecting other items
+			table.remove(harpoond.items, i)			-- remove and shift items to fill space
+			return
+		end
+	end
 	harpoon:list():add()
-end)
+end, { desc = "Toggle Harpoon List" })
 vim.keymap.set("n", "<leader>Hb", function()
 	harpoon.ui:toggle_quick_menu(harpoon:list())
 end)
